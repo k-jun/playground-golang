@@ -15,5 +15,7 @@ curl localhost:8080/500
 ## Build
 
 ```bash
-docker build -t docker-playground:latest .
+TAG='playground-golang:latest'
+docker build -t $TAG .
+docker push $TAG
 ```

@@ -2,7 +2,7 @@
 # syntax=docker/dockerfile:1
 
 # Build the application from source
-FROM golang:1.24.1 AS build-stage
+FROM --platform=linux/amd64 golang:1.24.1 AS build-stage
 
 WORKDIR /app
 
@@ -23,8 +23,6 @@ FROM gcr.io/distroless/base-debian11 AS build-release-stage
 WORKDIR /
 
 COPY --from=build-stage /main /main
-
-EXPOSE 8080
 
 USER nonroot:nonroot
 
